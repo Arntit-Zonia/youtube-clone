@@ -5,7 +5,7 @@ import SearchInput from "./SearchInput";
 
 const App = () => {
 	return (
-		<div>
+		<div className="container">
 			<SearchInput />
 			<VideoScreen />
 			<VideoList />

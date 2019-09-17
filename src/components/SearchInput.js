@@ -1,8 +1,22 @@
 import React from "react";
-import { Field, reduxFrom } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 
-const SearchInput = () => {
-	return <div>Search Input</div>;
+const renderInput = ({ input }) => {
+	return <input type="text" placeholder="Search" {...input} />;
 };
 
-export default SearchInput;
+const SearchInput = (props) => {
+	const { handleSubmit } = props;
+
+	const onSubmit = (value) => {
+		console.log(value);
+	};
+
+	return (
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<Field name="search" component={renderInput} />
+		</form>
+	);
+};
+
+export default reduxForm({ form: "searchInput" })(SearchInput);

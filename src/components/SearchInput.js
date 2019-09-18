@@ -1,5 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { fetchVideos } from "../actions/fetchVideos";
 
 const renderInput = ({ input }) => {
 	return <input type="text" placeholder="Search" {...input} />;
@@ -9,7 +11,7 @@ const SearchInput = (props) => {
 	const { handleSubmit } = props;
 
 	const onSubmit = (value) => {
-		console.log(value);
+		props.fetchVideos(value);
 	};
 
 	return (
@@ -19,4 +21,9 @@ const SearchInput = (props) => {
 	);
 };
 
-export default reduxForm({ form: "searchInput" })(SearchInput);
+const formWrapped = reduxForm({ form: "searchInput" })(SearchInput);
+
+export default connect(
+	null,
+	{ fetchVideos }
+)(formWrapped);

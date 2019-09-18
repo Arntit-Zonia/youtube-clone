@@ -7,8 +7,14 @@ const App = () => {
 	return (
 		<div className="container">
 			<SearchInput />
-			<VideoScreen />
-			<VideoList />
+			<div className="row">
+				<div className="col md 6 d-inline-block">
+					<VideoScreen />
+				</div>
+				<div className="col md 6 d-inline-block">
+					<VideoList />
+				</div>
+			</div>
 		</div>
 	);
 };

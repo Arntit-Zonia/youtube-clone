@@ -10,6 +10,5 @@ export const fetchVideos = (value) => async (dispatch) => {
 			key: KEY
 		}
 	});
-
 	dispatch({ type: "FETCH_VIDEOS", payload: response });
 };

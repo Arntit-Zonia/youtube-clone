@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import fetchVideos from "../actions/fetchVideos";
 
 const VideoItem = (props) => {
+	useEffect(() => {
+		props.fetchVideos("nba");
+	}, []);
+
 	const renderVideo = () => {
 		if (props.videos.length !== 0) {
-			console.log(props.videos[0].data.items);
 			return props.videos[0].data.items.map((video) => {
 				return (
-					<div className="border rounded m-2" key={video.id.videoId}>
+					<div
+						className="border rounded m-2"
+						key={video.snippet.description}
+						id={video.snippet.title}
+					>
 						<p className="lead">{video.snippet.title}</p>
 						<img
-							className="my-2"
-							src={video.snippet.thumbnails.high.url}
-							alt={video.snippet.title}
+							className="m-2 rounded"
+							src={video.snippet.thumbnails.medium.url}
+							alt={video.id.videoId}
 						/>
 						<p>{video.snippet.description}</p>
 					</div>
@@ -20,11 +28,14 @@ const VideoItem = (props) => {
 			});
 		}
 	};
-	return <div>{renderVideo() ? renderVideo() : "Loading Videos..."}</div>;
+	return <div>{renderVideo()}</div>;
 };
 
 const mapStateToProps = (state) => {
 	return { videos: state.videos };
 };
 
-export default connect(mapStateToProps)(VideoItem);
+export default connect(
+	mapStateToProps,
+	{ fetchVideos }
+)(VideoItem);

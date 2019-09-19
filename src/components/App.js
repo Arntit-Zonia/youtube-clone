@@ -5,14 +5,16 @@ import SearchInput from "./SearchInput";
 
 const App = () => {
 	return (
-		<div className="container">
+		<div>
 			<SearchInput />
-			<div className="row">
-				<div className="col md 6 d-inline-block">
-					<VideoScreen />
-				</div>
-				<div className="col md 6 d-inline-block">
-					<VideoList />
+			<div className="justify-content-between">
+				<div className="row">
+					<div className="col md 6 d-inline-block">
+						<VideoScreen />
+					</div>
+					<div className="col md 6 d-inline-block">
+						<VideoList />
+					</div>
 				</div>
 			</div>
 		</div>

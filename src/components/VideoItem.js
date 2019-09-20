@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchVideos, fetchVideoIndex } from "../actions/";
 
-const VideoItem = (props) => {
+const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
 	useEffect(() => {
-		props.fetchVideos("nba");
+		fetchVideos("nba");
 	}, []);
 
 	const renderVideo = () => {
-		if (props.videos.length !== 0) {
-			return props.videos[0].data.items.map((video, index) => {
+		if (videos.length !== 0) {
+			return videos[0].data.items.map((video, index) => {
 				return (
 					<div
 						className="border rounded m-2"
@@ -32,7 +32,9 @@ const VideoItem = (props) => {
 		}
 	};
 	return (
-		<div onClick={(e) => props.getIndex(e.target.id)}>{renderVideo()}</div>
+		<div onClick={(e) => fetchVideoIndex(parseInt(e.target.id))}>
+			{renderVideo()}
+		</div>
 	);
 };
 

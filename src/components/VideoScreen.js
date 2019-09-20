@@ -1,24 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const VideoScreen = (props) => {
-	const { videos, currentVideo, index } = props;
-
+const VideoScreen = ({ videos, currentVideo }) => {
 	const renderDefaultVideo = () => {
 		if (videos.length !== 0) {
 			return (
 				<div>
 					<p className="lead">
-						{videos[0].data.items[index].snippet.title}
+						{videos[0].data.items[currentVideo].snippet.title}
 					</p>
 					<iframe
-						title="Video"
+						title="video"
 						width="560"
 						height="315"
-						src={`https://www.youtube.com/embed/${videos[0].data.items[index].id.videoId}`}
+						src={`https://www.youtube.com/embed/${videos[0].data.items[currentVideo].id.videoId}`}
 						allow="fullscreen"
 					></iframe>
-					<p>{videos[0].data.items[index].snippet.description}</p>
+					<p>
+						{videos[0].data.items[currentVideo].snippet.description}
+					</p>
 				</div>
 			);
 		}

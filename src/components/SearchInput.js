@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import fetchVideos from "../actions/fetchVideos";
+import { fetchVideos } from "../actions/";
 
 const renderInput = ({ input }) => {
 	return <input type="text" placeholder="Search" {...input} />;

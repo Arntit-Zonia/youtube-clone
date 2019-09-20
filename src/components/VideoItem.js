@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import fetchVideos from "../actions/fetchVideos";
+import { fetchVideos, fetchVideoIndex } from "../actions/";
 
 const VideoItem = (props) => {
 	useEffect(() => {
@@ -9,26 +9,31 @@ const VideoItem = (props) => {
 
 	const renderVideo = () => {
 		if (props.videos.length !== 0) {
-			return props.videos[0].data.items.map((video) => {
+			return props.videos[0].data.items.map((video, index) => {
 				return (
 					<div
 						className="border rounded m-2"
 						key={video.snippet.description}
-						id={video.snippet.title}
+						id={index}
 					>
-						<p className="lead">{video.snippet.title}</p>
+						<p id={index} className="lead">
+							{video.snippet.title}
+						</p>
 						<img
+							id={index}
 							className="m-2 rounded"
 							src={video.snippet.thumbnails.medium.url}
 							alt={video.id.videoId}
 						/>
-						<p>{video.snippet.description}</p>
+						<p id={index}>{video.snippet.description}</p>
 					</div>
 				);
 			});
 		}
 	};
-	return <div>{renderVideo()}</div>;
+	return (
+		<div onClick={(e) => props.getIndex(e.target.id)}>{renderVideo()}</div>
+	);
 };
 
 const mapStateToProps = (state) => {
@@ -37,5 +42,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
 	mapStateToProps,
-	{ fetchVideos }
+	{ fetchVideos, fetchVideoIndex }
 )(VideoItem);

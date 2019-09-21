@@ -4,7 +4,14 @@ import { connect } from "react-redux";
 import { fetchVideos, fetchVideoIndex } from "../actions/";
 
 const renderInput = ({ input }) => {
-	return <input type="text" placeholder="Search" {...input} />;
+	return (
+		<input
+			className="search-input form-control mx-auto my-3"
+			type="text"
+			placeholder="Search"
+			{...input}
+		/>
+	);
 };
 
 const SearchInput = ({ fetchVideos, fetchVideoIndex, handleSubmit }) => {

@@ -12,30 +12,31 @@ const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
 			return videos[0].data.items.map((video, index) => {
 				return (
 					<div
-						className="border rounded m-2"
+						onClick={(e) => fetchVideoIndex(parseInt(e.target.id))}
+						className="card m-2"
 						key={video.snippet.description}
 						id={index}
 					>
-						<p id={index} className="lead">
-							{video.snippet.title}
-						</p>
-						<img
-							id={index}
-							className="m-2 rounded"
-							src={video.snippet.thumbnails.medium.url}
-							alt={video.id.videoId}
-						/>
-						<p id={index}>{video.snippet.description}</p>
+						<div id={index} className="card-body">
+							<p id={index} className="card-title lead ">
+								{video.snippet.title}
+							</p>
+							<img
+								id={index}
+								className="m-2 rounded"
+								src={video.snippet.thumbnails.medium.url}
+								alt={video.id.videoId}
+							/>
+							{/* <p className="card-text w-50" id={index}>
+								{video.snippet.description}
+							</p> */}
+						</div>
 					</div>
 				);
 			});
 		}
 	};
-	return (
-		<div onClick={(e) => fetchVideoIndex(parseInt(e.target.id))}>
-			{renderVideo()}
-		</div>
-	);
+	return <div>{renderVideo()}</div>;
 };
 
 const mapStateToProps = (state) => {

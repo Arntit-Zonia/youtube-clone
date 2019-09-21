@@ -5,7 +5,7 @@ const VideoScreen = ({ videos, currentVideo }) => {
 	const renderDefaultVideo = () => {
 		if (videos.length !== 0) {
 			return (
-				<div>
+				<div className="video-screen">
 					<p className="lead">
 						{videos[0].data.items[currentVideo].snippet.title}
 					</p>

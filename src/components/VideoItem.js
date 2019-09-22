@@ -12,8 +12,9 @@ const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
 			return videos[0].data.items.map((video, index) => {
 				return (
 					<div
+						//grabs the index value from a video in order to display it at VideoScreen
 						onClick={(e) => fetchVideoIndex(parseInt(e.target.id))}
-						className="video-item text-center m-2 card mt-4"
+						className="video-item text-center card mx-3 my-2"
 						key={video.snippet.description}
 						id={index}
 					>

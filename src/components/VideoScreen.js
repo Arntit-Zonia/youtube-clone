@@ -17,7 +17,7 @@ const VideoScreen = ({ videos, currentVideo }) => {
 							allow="fullscreen"
 						></iframe>
 					</div>
-					<p className="video-screen-description lead">
+					<p className="video-screen-description">
 						{videos[0].data.items[currentVideo].snippet.description}
 					</p>
 				</div>

@@ -3,7 +3,7 @@ import VideoItem from "./VideoItem";
 
 const VideoList = () => {
 	return (
-		<div className="video-list mt-4">
+		<div className="video-list mb-2">
 			<VideoItem />
 		</div>
 	);

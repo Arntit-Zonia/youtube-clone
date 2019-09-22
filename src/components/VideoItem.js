@@ -4,7 +4,7 @@ import { fetchVideos, fetchVideoIndex } from "../actions/";
 
 const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
 	useEffect(() => {
-		fetchVideos("nba");
+		fetchVideos("books");
 	}, []);
 
 	const renderVideo = () => {
@@ -13,24 +13,22 @@ const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
 				return (
 					<div
 						onClick={(e) => fetchVideoIndex(parseInt(e.target.id))}
-						className="card m-2"
+						className="video-item text-center m-2 card mt-4"
 						key={video.snippet.description}
 						id={index}
 					>
-						<div id={index} className="card-body">
-							<p id={index} className="card-title lead ">
-								{video.snippet.title}
-							</p>
-							<img
-								id={index}
-								className="m-2 rounded"
-								src={video.snippet.thumbnails.medium.url}
-								alt={video.id.videoId}
-							/>
-							{/* <p className="card-text w-50" id={index}>
-								{video.snippet.description}
-							</p> */}
-						</div>
+						<p
+							id={index}
+							className="video-item-title lead card-title p-2"
+						>
+							{video.snippet.title}
+						</p>
+						<img
+							id={index}
+							className="m-2 rounded"
+							src={video.snippet.thumbnails.medium.url}
+							alt={video.id.videoId}
+						/>
 					</div>
 				);
 			});

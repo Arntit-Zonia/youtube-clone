@@ -1,20 +1,68 @@
+body {
+	background: #f5f6fa !important;
+}
+
 .search-input {
-	width: 500px;
+	max-width: 500px;
 	transition: 0.5s ease-out;
 	border-radius: 0 !important;
 }
 
 .search-input:focus {
-	width: 700px;
-	box-shadow: none;
+	max-width: 700px !important;
+	box-shadow: none !important;
 	border-radius: 15px !important;
 }
 
-.components {
+/* .components {
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-}
+} */
 
 .video-screen {
+}
+
+.iframe-container {
+	/* position: relative; */
+	/* padding-top: 56.25%; */
+}
+
+/* .iframe-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.iframe-container-4x3 {
+	padding-top: 75%;
+} */
+
+.video-screen-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 700px;
+}
+
+.video-screen-description {
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 700px;
+}
+
+.video-item-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 300px;
+}
+
+@media (max-width: 1020px) {
+	.video-item {
+		display: block;
+	}
 }

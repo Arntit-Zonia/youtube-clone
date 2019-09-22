@@ -20,6 +20,7 @@ const SearchInput = ({ fetchVideos, fetchVideoIndex, handleSubmit }) => {
 
 		// resets the index so the first video is always displayed by default
 		fetchVideoIndex(0);
+		value.search = "";
 	};
 
 	return (

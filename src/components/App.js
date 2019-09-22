@@ -6,11 +6,15 @@ import "../styles.css";
 
 const App = () => {
 	return (
-		<div className="app">
+		<div className="app container-fluid">
 			<SearchInput />
-			<div className="components">
-				<VideoScreen />
-				<VideoList />
+			<div className="row components">
+				<div className="col-12 col-lg-8">
+					<VideoScreen />
+				</div>
+				<div className="col-lg-4 d-flex justify-content-md-end justify-content-center ">
+					<VideoList />
+				</div>
 			</div>
 		</div>
 	);

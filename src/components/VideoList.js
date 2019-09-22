@@ -2,7 +2,11 @@ import React from "react";
 import VideoItem from "./VideoItem";
 
 const VideoList = () => {
-	return <VideoItem />;
+	return (
+		<div className="video-list mt-4">
+			<VideoItem />
+		</div>
+	);
 };
 
 export default VideoList;

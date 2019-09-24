@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 const VideoScreen = ({ videos, currentVideo }) => {
 	const renderDefaultVideo = () => {
-		if (videos.length !== 0) {
+		if (videos.length && videos[0].data.pageInfo.totalResults) {
 			return (
 				<div className="video-screen">
 					<p className="video-screen-title lead">
@@ -23,6 +23,15 @@ const VideoScreen = ({ videos, currentVideo }) => {
 				</div>
 			);
 		}
+		return (
+			<div
+				style={{ marginTop: 200, marginLeft: 550 }}
+				className="d-flex justify-content-center"
+			>
+				<h1>No results found!</h1>
+				<i className="fas fa-exclamation-triangle mx-2 fa-3x ml-3"></i>
+			</div>
+		);
 	};
 
 	return <div>{renderDefaultVideo()}</div>;

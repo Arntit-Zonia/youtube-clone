@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import decode from "unescape";
 import { fetchVideos, fetchVideoIndex } from "../actions/";
 
 const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
@@ -22,7 +23,7 @@ const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
 							id={index}
 							className="video-item-title lead card-title p-2"
 						>
-							{video.snippet.title}
+							{decode(video.snippet.title, "all")}
 						</p>
 						<img
 							id={index}

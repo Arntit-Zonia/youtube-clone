@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import decode from "unescape";
 
 const VideoScreen = ({ videos, currentVideo }) => {
 	const renderDefaultVideo = () => {
@@ -7,7 +8,10 @@ const VideoScreen = ({ videos, currentVideo }) => {
 			return (
 				<div className="video-screen">
 					<p className="video-screen-title lead">
-						{videos[0].data.items[currentVideo].snippet.title}
+						{decode(
+							videos[0].data.items[currentVideo].snippet.title,
+							"all"
+						)}
 					</p>
 					<div className="iframe-container embed-responsive embed-responsive-16by9 w-auto">
 						<iframe
@@ -18,7 +22,11 @@ const VideoScreen = ({ videos, currentVideo }) => {
 						></iframe>
 					</div>
 					<p className="video-screen-description">
-						{videos[0].data.items[currentVideo].snippet.description}
+						{decode(
+							videos[0].data.items[currentVideo].snippet
+								.description,
+							"all"
+						)}
 					</p>
 				</div>
 			);

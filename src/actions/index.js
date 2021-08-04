@@ -2,7 +2,7 @@ import youtube from "../api/youtube";
 import { FETCH_VIDEOS, FETCH_VIDEO_INDEX } from "../types";
 
 export const fetchVideos = (value) => async (dispatch) => {
-	const KEY = "AIzaSyChpQtYJFrs4iRFRFOx0lCWnSzKlTYAXZA";
+	const KEY = "AIzaSyCDRq6ohA6Ka3PGJrCk4wuiX1niCm-gFxU";
 
 	const response = await youtube.get("search/", {
 		params: {

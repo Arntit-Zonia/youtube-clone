@@ -5,7 +5,7 @@ import { fetchVideos, fetchVideoIndex } from "../actions/";
 
 const VideoItem = ({ videos, fetchVideos, fetchVideoIndex }) => {
 	useEffect(() => {
-		fetchVideos("books");
+		fetchVideos("top books");
 	}, []);
 
 	const renderVideo = () => {
